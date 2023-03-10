@@ -10,7 +10,7 @@ just fontend
 
 ## Used By
 
-This project is used by:
+This project is created by:
 
 - helka septyawan
 
