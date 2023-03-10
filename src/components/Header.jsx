@@ -8,14 +8,16 @@ import {
    AiFillShopping,
 } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
    const [active, setActive] = React.useState(false);
+   const cart = useSelector((state) => state.cart);
    return (
       <header className="h-[60px] bg-primary">
          <Container className="justify-between flex items-center h-full relative">
-            <h2 className="text-xl font-semibold">
+            <h2 className="text-[26px] font-semibold">
                Furniture <span className="text-third">Me.</span>
             </h2>
             <nav
@@ -30,10 +32,19 @@ const Header = () => {
                ))}
             </nav>
             <div className="flex gap-2">
-               <button className="text-third flex p-2 items-center relative">
-                  <span className="absolute text-sm top-0 right-0">0</span>
-                  <AiFillShopping size={23} />
-               </button>
+               <Link to="/cart">
+                  <button
+                     className={`${
+                        cart.cartItems.length < 0
+                           ? "text-third"
+                           : "bg-pink-100 text-red-300"
+                     } flex p-2 items-center rounded-md relative`}>
+                     <span className="absolute text-sm -top-2 -right-2 bg-white rounded-full w-[20px] h-[20px]">
+                        {cart.cartItems.length}
+                     </span>
+                     <AiFillShopping size={23} />
+                  </button>
+               </Link>
                <button className="text-third px-3 py-[2px] flex justify-between text-sm items-center gap-3 rounded-md bg-secondary min-w-18">
                   <AiFillGoogleCircle size={23} />
                   <span>Login</span>

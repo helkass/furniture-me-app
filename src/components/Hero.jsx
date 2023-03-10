@@ -7,7 +7,7 @@ import Container from "./comps/Container";
 
 const Hero = () => {
    return (
-      <section className="bg-primary">
+      <section className="bg-primary py-20">
          <Container className="flex sm:justify-between justify-center items-center sm:flex-row flex-col">
             {/* left content */}
             <div className="flex flex-col sm:gap-5 capitalize sm:w-8/12 md:w-7/12 relative w-full sm:text-left text-center items-center sm:items-start gap-9">
@@ -15,6 +15,10 @@ const Hero = () => {
                   design your <span className="text-third">interior</span> with
                   <span className="text-third"> modern</span> furniture.
                </h1>
+               <p className="text-black/70 sm:w-8/12 w-11/12">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               </p>
                <button className="bg-third sm:h-[50px] h-[38px] capitalize rounded-md text-sm text-white w-44 flex items-center justify-center">
                   check out now
                </button>

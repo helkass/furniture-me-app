@@ -1,20 +1,23 @@
 import React from "react";
-import { requestApi } from "../api/requestApi";
 
 import CardProduct from "../components/templates/CardProduct";
 import Container from "../components/comps/Container";
 import Badge from "../components/comps/Badge";
 
+import data from "../data/data";
+
 import { BsFillLampFill, BsThreeDots } from "react-icons/bs";
 import { GiTable } from "react-icons/gi";
 import { BiChair } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/cartSlice";
 
 const categories = ["chair", "table", "lamp", "others"];
 
 const icon = [BiChair, GiTable, BsFillLampFill, BsThreeDots];
 
 function Products() {
-   const { data, loading, error } = requestApi();
+   const dispatch = useDispatch();
    return (
       <section>
          <Container>
@@ -28,22 +31,11 @@ function Products() {
                   ))}
                </div>
             </div>
-            {/* actions */}
-            {loading && (
-               <div className="min-h-[350px] flex justify-center text-xl items-center">
-                  <span className="">Loading...</span>
-               </div>
-            )}
-            {error && (
-               <div className="min-h-[350px] flex justify-center text-xl items-center">
-                  <span className="text-red-500">Something went wrong!</span>
-               </div>
-            )}
-            {/* end actions */}
             <div className="flex justify-evenly gap-6 flex-wrap my-12">
                {data?.map((product, idx) => (
                   <CardProduct
                      key={idx}
+                     onClick={() => dispatch(addCart(product))}
                      title={product.title}
                      image={product.image}
                      price={product.price}

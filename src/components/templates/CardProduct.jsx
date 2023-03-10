@@ -21,7 +21,9 @@ const CardProduct = ({ image, title, desc, onClick, price }) => {
             </span>
             <div className="flex justify-between text-third items-center">
                <span>{format(price)}</span>
-               <button onClick={onClick} className="bg-primary rounded-md p-2">
+               <button
+                  onClick={onClick}
+                  className="bg-primary rounded-md p-2 hover:bg-pink-50 hover:text-red-300">
                   <BsFillCartFill size={20} />
                </button>
             </div>

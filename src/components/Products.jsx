@@ -1,45 +1,24 @@
 import React from "react";
 import CardProduct from "./templates/CardProduct";
 import SectionTemplate from "./templates/SectionTemplate";
-
-import image1 from "../assets/image1.svg";
-import image4 from "../assets/image4.svg";
+import data from "../data/data";
 import { Link } from "react-router-dom";
-
-const products = [
-   {
-      image: image1,
-      title: "chair relaxed",
-      price: 13.5,
-      desc: "Lorem Ipsum is simply",
-   },
-   {
-      image: image4,
-      title: "chair relaxed",
-      price: 14.5,
-      desc: "Lorem Ipsum is simply",
-   },
-   {
-      image: image1,
-      title: "chair relaxed",
-      price: 15.5,
-      desc: "Lorem Ipsum is simply",
-   },
-   {
-      image: image4,
-      title: "chair relaxed",
-      price: 16.5,
-      desc: "Lorem Ipsum is simply",
-   },
-];
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/cartSlice";
 
 const Products = () => {
+   const dispatch = useDispatch();
+
+   const addToCart = (data) => {
+      dispatch(addCart(data));
+   };
    return (
       <SectionTemplate title="our products" idSection="products">
          <div className="flex justify-evenly gap-6 flex-wrap">
-            {products.slice(0, 7).map((product, idx) => (
+            {data.slice(0, 7).map((product, idx) => (
                <CardProduct
                   key={idx}
+                  onClick={() => addToCart(product)}
                   title={product.title}
                   image={product.image}
                   price={product.price}
