@@ -17,7 +17,7 @@ const Header = () => {
    return (
       <header className="h-[60px] bg-primary">
          <Container className="justify-between flex items-center h-full relative">
-            <h2 className="text-[26px] font-semibold">
+            <h2 className="md:text-[26px] text-xl flex flex-nowrap font-semibold whitespace-nowrap">
                Furniture <span className="text-third">Me.</span>
             </h2>
             <nav
@@ -38,14 +38,14 @@ const Header = () => {
                         cart.cartItems.length < 0
                            ? "text-third"
                            : "bg-pink-100 text-red-300"
-                     } flex p-2 items-center rounded-md relative`}>
+                     } flex sm:p-2 p-1 items-center rounded-md relative`}>
                      <span className="absolute text-sm -top-2 -right-2 bg-white rounded-full w-[20px] h-[20px]">
                         {cart.cartItems.length}
                      </span>
                      <AiFillShopping size={23} />
                   </button>
                </Link>
-               <button className="text-third px-3 py-[2px] flex justify-between text-sm items-center gap-3 rounded-md bg-secondary min-w-18">
+               <button className="text-third md:px-3 py-[2px] flex justify-between text-sm items-center gap-3 rounded-md md:bg-secondary min-w-18">
                   <AiFillGoogleCircle size={23} />
                   <span>Login</span>
                </button>
